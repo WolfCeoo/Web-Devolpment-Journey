@@ -370,3 +370,17 @@ a {
         height: 70vw;
     }
 }
+
+/* ── TYPEWRITER CURSOR ── */
+.cursor {
+    display: inline-block;
+    color: #7cf03d;
+    font-weight: 300;
+    animation: blink 0.7s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}

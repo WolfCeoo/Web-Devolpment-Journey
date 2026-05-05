@@ -10,14 +10,9 @@
 <body>
     <nav class="navbar">
         <a href="#" class="logo">Portfolio.</a>
-
-        <!-- Hamburger button (mobile only) -->
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
-
         <ul id="navList">
             <li class="active"><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -39,10 +34,8 @@
     <section class="home" id="home">
         <div class="home-info">
             <h1>Andile Mathe</h1>
-            <h2>I'm a Backend Developer, Network Engineer and Security, and Frontend Developer</h2>
-            <p>As a final-year IT student, I am passionate about working with computer systems, setting up robust security infrastructures, and building dynamic websites. With hands-on experience in backend and frontend development, I focus on creating secure,
-                scalable solutions while continuously learning the latest technologies to optimize system performance and security.</p>
-
+            <h2>I'm a <span id="typewriter"></span><span class="cursor">|</span></h2>
+            <p>As a final-year IT student, I am passionate about working with computer systems, setting up robust security infrastructures, and building dynamic websites. With hands-on experience in backend and frontend development, I focus on creating secure, scalable solutions while continuously learning the latest technologies to optimize system performance and security.</p>
             <div class="btn-sci">
                 <a href="#" class="btn">Download CV</a>
                 <div class="sci">
@@ -52,7 +45,6 @@
                 </div>
             </div>
         </div>
-
         <div class="home-img">
             <div class="img-box">
                 <div class="img-item">
@@ -63,19 +55,55 @@
     </section>
 
     <script>
+        // Hamburger menu
         const toggle = document.getElementById('menuToggle');
         const navList = document.getElementById('navList');
         toggle.addEventListener('click', () => {
             navList.classList.toggle('open');
             toggle.classList.toggle('active');
         });
-        // Close menu when a link is clicked
         navList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navList.classList.remove('open');
                 toggle.classList.remove('active');
             });
         });
+
+        // Typewriter
+        const roles = [
+            'Backend Developer.',
+            'Network Engineer.',
+            'Security Specialist.',
+            'Frontend Developer.',
+            'IT Student.'
+        ];
+        const el = document.getElementById('typewriter');
+        let roleIndex = 0, charIndex = 0, deleting = false;
+
+        function type() {
+            const current = roles[roleIndex];
+            if (!deleting) {
+                el.textContent = current.slice(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === current.length) {
+                    deleting = true;
+                    setTimeout(type, 1800);
+                    return;
+                }
+                setTimeout(type, 80);
+            } else {
+                el.textContent = current.slice(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    deleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    setTimeout(type, 400);
+                    return;
+                }
+                setTimeout(type, 45);
+            }
+        }
+        setTimeout(type, 2000);
     </script>
 </body>
 </html>

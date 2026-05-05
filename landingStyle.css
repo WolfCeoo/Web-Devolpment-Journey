@@ -16,6 +16,7 @@ a {
     color: #fff;
 }
 
+/* ── NAVBAR ── */
 .navbar {
     position: fixed;
     left: 0;
@@ -46,10 +47,10 @@ a {
 
 .navbar ul {
     display: flex;
+    list-style: none;
 }
 
 .navbar ul li {
-    list-style-type: none;
     margin-left: 35px;
 }
 
@@ -64,12 +65,42 @@ a {
     color: #7cf03d;
 }
 
+/* ── HAMBURGER BUTTON ── */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+    padding: 0;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.35s ease;
+    transform-origin: left center;
+}
+
+/* Animate hamburger → X */
+.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(1px, -3px); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(1px, 3px); }
+
+/* ── HOME SECTION ── */
 .home {
     display: flex;
     align-items: center;
     gap: 50px;
-    height: 100vh;
-    padding: 60px 9% 0;
+    min-height: 100vh;
+    padding: 100px 9% 60px;
     color: #fff;
     visibility: hidden;
     opacity: 0;
@@ -85,7 +116,6 @@ a {
     font-size: 32px;
     margin-top: -10px;
     color: #7cf03d;
-    white-space: normal; /* Ensures the sentence is displayed properly */
 }
 
 .home-info p {
@@ -96,6 +126,8 @@ a {
 .home-info .btn-sci {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .btn {
@@ -118,7 +150,8 @@ a {
 }
 
 .home-info .btn-sci .sci {
-    margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .home-info .btn-sci .sci a {
@@ -138,6 +171,7 @@ a {
     box-shadow: 0 0 10px;
 }
 
+/* ── IMAGE BOX ── */
 .home-img .img-box {
     position: relative;
     width: 32vw;
@@ -147,6 +181,7 @@ a {
     display: flex;
     align-items: center;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .home-img .img-box::before,
@@ -165,9 +200,7 @@ a {
 }
 
 @keyframes rotate-border {
-    100% {
-        transform: rotate(360deg);
-    }
+    100% { transform: rotate(360deg); }
 }
 
 .home-img .img-box .img-item {
@@ -192,12 +225,14 @@ a {
     mix-blend-mode: lighten;
 }
 
+/* ── BARS ANIMATION ── */
 .bars-animation {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     display: flex;
-    z-index: -1;
+    z-index: 999;
+    pointer-events: none;
 }
 
 .bars-animation .bar {
@@ -210,7 +245,128 @@ a {
 }
 
 @keyframes show-bars {
-    100% {
-        transform: translateY(0);
+    100% { transform: translateY(0); }
+}
+
+/* ════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ════════════════════════════════ */
+
+/* ── TABLET (max 1024px) ── */
+@media (max-width: 1024px) {
+    .home {
+        gap: 30px;
+        padding: 100px 6% 60px;
+    }
+
+    .home-info h1 { font-size: 42px; }
+    .home-info h2 { font-size: 24px; }
+
+    .home-img .img-box {
+        width: 38vw;
+        height: 38vw;
+    }
+}
+
+/* ── MOBILE (max 768px) ── */
+@media (max-width: 768px) {
+
+    /* Show hamburger, hide nav list by default */
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: #161b22;
+        padding: 90px 40px 40px;
+        gap: 30px;
+        box-shadow: -4px 0 30px rgba(0,0,0,0.5);
+        transition: transform 0.35s ease;
+        transform: translateX(100%);
+        z-index: 150;
+    }
+
+    .navbar ul.open {
+        display: flex;
+        transform: translateX(0);
+        animation: slide-in 0.35s ease forwards;
+    }
+
+    @keyframes slide-in {
+        from { transform: translateX(100%); }
+        to   { transform: translateX(0); }
+    }
+
+    .navbar ul li {
+        margin-left: 0;
+    }
+
+    .navbar ul li a {
+        font-size: 22px;
+    }
+
+    /* Stack home section vertically */
+    .home {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        padding: 120px 6% 60px;
+        gap: 30px;
+    }
+
+    .home-info h1 { font-size: 36px; }
+    .home-info h2 { font-size: 18px; }
+    .home-info p  { font-size: 14px; }
+
+    .home-info .btn-sci {
+        justify-content: center;
+    }
+
+    /* Image becomes smaller circle */
+    .home-img .img-box {
+        width: 60vw;
+        height: 60vw;
+        max-width: 260px;
+        max-height: 260px;
+    }
+
+    /* Fix rotating border size on mobile */
+    .home-img .img-box::before,
+    .home-img .img-box::after {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/* ── SMALL MOBILE (max 480px) ── */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 20px 5%;
+    }
+
+    .navbar .logo {
+        font-size: 24px;
+    }
+
+    .home-info h1 { font-size: 28px; }
+    .home-info h2 { font-size: 15px; }
+    .home-info p  { font-size: 13px; }
+
+    .btn {
+        padding: 8px 22px;
+        font-size: 14px;
+    }
+
+    .home-img .img-box {
+        width: 70vw;
+        height: 70vw;
     }
 }

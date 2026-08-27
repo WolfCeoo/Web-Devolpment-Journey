@@ -1,0 +1,25 @@
+# Example Nginx server block for hosting this portfolio on your VPS.
+# Copy to /etc/nginx/sites-available/portfolio, adjust the domain/path,
+# then symlink into sites-enabled and reload nginx.
+
+server {
+    listen 80;
+    server_name your-domain-or-subdomain.com;
+
+    root /var/www/portfolio;  # should match VPS_DEPLOY_PATH secret used in the GitHub Action
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Basic caching for static assets
+    location ~* \.(css|js|png|jpg|jpeg|svg|ico)$ {
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+    }
+}
+
+# Once this is working over HTTP, run:
+#   sudo certbot --nginx -d your-domain-or-subdomain.com
+# to add HTTPS via Let's Encrypt (same approach you used on the food delivery platform).

@@ -724,13 +724,29 @@ section, .footer {
 }
 
 .featured-label {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     color: #7cf03d;
     margin-bottom: 8px;
+}
+
+.featured-label i {
+    font-size: 14px;
+}
+
+.portfolio-subheading {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 20px;
+    padding-left: 2px;
 }
 
 .featured-body h3 {

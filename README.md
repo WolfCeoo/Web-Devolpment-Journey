@@ -1,15 +1,15 @@
 # 🐺 Andile Mathe — Portfolio
 
-> Software Developer & AI Engineer, building full-stack web applications, backend systems, and AI agents.
+> Software Developer & AI Engineer, building full-stack web applications, backend systems, AI agents, and network infrastructure.
 
 🌐 **Live site (GitHub Pages):** [wolfceoo.github.io/Web-Devolpment-Journey](https://wolfceoo.github.io/Web-Devolpment-Journey)
-🌐 **Mirror (self-hosted VPS):** add your domain here once DNS is pointed
+🌐 **Mirror (self-hosted VPS):** not yet configured — add your domain here once set up
 
 ---
 
 ## 👨‍💻 About Me
 
-I'm a software developer with a National Diploma in Information Technology, working across full-stack web development, backend engineering, and AI agent systems (LangChain, LangGraph, RAG). I don't stop at the code — I set up and manage the infrastructure it runs on too (VPS, Nginx, SSL, Docker).
+I'm a software developer with a National Diploma in Information Technology, working across full-stack web development, backend engineering, network engineering, and AI agent systems (LangChain, LangGraph, RAG). I don't stop at the code — I set up and manage the infrastructure it runs on too (VPS, Nginx, SSL, Docker).
 
 ---
 
@@ -22,7 +22,7 @@ I'm a software developer with a National Diploma in Information Technology, work
 | AI & Automation | LangChain, LangGraph, RAG, n8n |
 | Database | PostgreSQL, MySQL, MariaDB |
 | DevOps | Docker, Nginx, GitHub Actions, VPS deployment |
-| Networking | Network Engineering, Security Fundamentals |
+| Networking | Network design & topology, Cisco Packet Tracer, TCP/IP |
 | Tools | Git, GitHub, VS Code, Linux (Ubuntu/WSL) |
 
 ---
@@ -31,7 +31,7 @@ I'm a software developer with a National Diploma in Information Technology, work
 
 ```
 Web-Devolpment-Journey/
-├── index.html                       # Main site — Home, About, Portfolio, Services, Contact
+├── index.html                       # Main site — Home, About, Portfolio, Certifications, Services, Contact
 ├── styles.css                       # Stylesheet (responsive, mobile-first)
 ├── Andile.png                       # Profile image
 ├── Andile_Mathe_CV.pdf              # Downloadable CV (linked from the Home section)
@@ -50,7 +50,10 @@ Web-Devolpment-Journey/
 - Animated intro bars on page load
 - Typewriter effect cycling through roles
 - Rotating border profile image
-- Full site sections: Home, About, Portfolio, Services, Contact
+- Full site sections: Home, About, Portfolio, Certifications, Services, Contact
+- Scroll-reveal animations as sections enter the viewport
+- Smooth scrolling between sections
+- Back-to-top button
 - Active nav-link highlighting on scroll
 - Social links — GitHub, LinkedIn, Twitter
 - Hamburger nav menu on mobile
@@ -97,10 +100,22 @@ This site is deployed to **two places** in parallel:
 
 ---
 
+## 🎓 Certifications
+
+- Linux Essentials — Cisco Networking Academy
+- Linux Unhatched — Cisco Networking Academy
+- Python Essentials — Cisco Networking Academy
+- Python (Basic) — HackerRank
+- LangChain for LLM Application Development — LangChain Academy
+- Introduction to LangGraph — LangChain Academy
+- LangSmith — LangChain Academy
+
+---
+
 ## 📬 Connect
 
 [![GitHub](https://img.shields.io/badge/GitHub-WolfCeoo-181717?style=flat&logo=github)](https://github.com/WolfCeoo)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Andile%20Mathe-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/andile-mathe)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Andile%20Mathe-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/andilemathecliff/)
 [![Twitter](https://img.shields.io/badge/Twitter-@wolf__ceo-1DA1F2?style=flat&logo=twitter)](https://x.com/wolf__ceo)
 
 ---

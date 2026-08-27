@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Andile Mathe — Software Developer & AI Engineer. Full-stack development, backend engineering, and AI agent systems.">
+    <meta name="description" content="Andile Mathe — Software Developer & AI Engineer. Full-stack development, backend engineering, network engineering, and AI agent systems.">
     <link rel="stylesheet" href="styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Andile Mathe | Portfolio</title>
 </head>
 <body>
-    <nav class="navbar">
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+
+    <nav class="navbar" id="navbar">
         <a href="#" class="logo">Portfolio.</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
             <span></span><span></span><span></span>
@@ -18,12 +24,13 @@
             <li class="active"><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#services">Service</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <div class="bars-animation">
+    <div class="bars-animation" id="barsAnimation">
         <div class="bar" style="--i:6;"></div>
         <div class="bar" style="--i:5;"></div>
         <div class="bar" style="--i:4;"></div>
@@ -34,9 +41,10 @@
 
     <section class="home" id="home">
         <div class="home-info">
+            <span class="eyebrow">Welcome to my corner of the internet</span>
             <h1>Andile Mathe</h1>
             <h2>I'm a <span id="typewriter"></span><span class="cursor">|</span></h2>
-            <p>I'm a software developer working across full-stack web development, backend engineering, and AI agent systems. I like owning things end-to-end — from architecture and code through to the infrastructure it runs on — and I bring that same instinct to every project I build.</p>
+            <p>I'm a software developer working across full-stack web development, backend engineering, network engineering, and AI agent systems. I like owning things end-to-end — from architecture and code through to the infrastructure it runs on — and I bring that same instinct to every project I build.</p>
             <div class="btn-sci">
                 <a href="Andile_Mathe_CV.pdf" class="btn" download>Download CV</a>
                 <div class="sci">
@@ -53,14 +61,17 @@
                 </div>
             </div>
         </div>
+        <a href="#about" class="scroll-cue" aria-label="Scroll down">
+            <i class='bx bx-chevron-down'></i>
+        </a>
     </section>
 
-    <section class="about" id="about">
+    <section class="about reveal" id="about">
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
             <div class="about-text">
                 <p>I hold a National Diploma in Information Technology from Tshwane University of Technology, graduating with multiple subject distinctions and membership in the Golden Key International Honour Society. Since then I've been building production systems in the real world — leading a backend redesign during a placement, building AI agents professionally, and independently architecting and running a live business platform from the ground up.</p>
-                <p>I'm comfortable moving between backend APIs, databases, frontend interfaces, and the infrastructure underneath all of it. I don't hand off deployment and call it someone else's problem — I'll set up the server, configure Nginx, and sort out SSL myself, because understanding the whole system makes for better engineering decisions.</p>
+                <p>I'm comfortable moving between backend APIs, databases, frontend interfaces, network infrastructure, and the systems underneath all of it. I don't hand off deployment and call it someone else's problem — I'll set up the server, configure Nginx, and sort out SSL myself, because understanding the whole system makes for better engineering decisions.</p>
             </div>
             <div class="about-stats">
                 <div class="stat-card">
@@ -83,12 +94,43 @@
                     <h3>Databases</h3>
                     <p>PostgreSQL, MySQL, MariaDB</p>
                 </div>
+                <div class="stat-card">
+                    <i class='bx bx-network-chart'></i>
+                    <h3>Networking</h3>
+                    <p>Network design & topology, Cisco Packet Tracer, TCP/IP</p>
+                </div>
+                <div class="stat-card">
+                    <i class='bx bx-terminal'></i>
+                    <h3>Linux</h3>
+                    <p>Ubuntu server administration, shell scripting</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="portfolio" id="portfolio">
+    <section class="portfolio reveal" id="portfolio">
         <h2 class="section-title">Portfolio</h2>
+
+        <div class="featured-card">
+            <div class="featured-icon"><i class='bx bx-food-menu'></i></div>
+            <div class="featured-body">
+                <span class="featured-label">Flagship Project</span>
+                <h3>Food Delivery Platform</h3>
+                <p>A complete food delivery platform architected and built from scratch, currently in active operation. Covers real-time dispatch automation with proximity matching, role-based dashboards for admins, vendors, and drivers, payment integration, and self-hosted deployment infrastructure.</p>
+                <div class="tag-list">
+                    <span class="tag">React</span>
+                    <span class="tag">n8n</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">PayFast</span>
+                    <span class="tag">Nginx</span>
+                    <span class="tag">Docker</span>
+                </div>
+                <span class="portfolio-link portfolio-link-static">
+                    <i class='bx bx-lock-alt'></i> Private — production system
+                </span>
+            </div>
+        </div>
+
         <div class="portfolio-grid">
 
             <div class="portfolio-card">
@@ -112,25 +154,6 @@
 
             <div class="portfolio-card">
                 <div class="portfolio-card-header">
-                    <i class='bx bx-food-menu'></i>
-                </div>
-                <h3>Food Delivery Platform</h3>
-                <p>A complete food delivery platform architected and built from scratch, currently in active operation. Covers real-time dispatch automation with proximity matching, role-based dashboards for admins, vendors, and drivers, payment integration, and self-hosted deployment infrastructure.</p>
-                <div class="tag-list">
-                    <span class="tag">React</span>
-                    <span class="tag">n8n</span>
-                    <span class="tag">PostgreSQL</span>
-                    <span class="tag">PayFast</span>
-                    <span class="tag">Nginx</span>
-                    <span class="tag">Docker</span>
-                </div>
-                <span class="portfolio-link portfolio-link-static">
-                    <i class='bx bx-lock-alt'></i> Private — production system
-                </span>
-            </div>
-
-            <div class="portfolio-card">
-                <div class="portfolio-card-header">
                     <i class='bx bx-globe'></i>
                 </div>
                 <h3>Full-Stack Web Application</h3>
@@ -146,36 +169,112 @@
                 </span>
             </div>
 
+            <div class="portfolio-card">
+                <div class="portfolio-card-header">
+                    <i class='bx bx-network-chart'></i>
+                </div>
+                <h3>Network Design & Administration</h3>
+                <p>Designed and configured network topologies with a focus on security, reliability, and maintainability — including routing, switching, and addressing schemes — simulated and documented in Cisco Packet Tracer.</p>
+                <div class="tag-list">
+                    <span class="tag">Cisco Packet Tracer</span>
+                    <span class="tag">TCP/IP</span>
+                    <span class="tag">Network Topology</span>
+                </div>
+                <span class="portfolio-link portfolio-link-static">
+                    <i class='bx bx-router'></i> Packet Tracer simulation
+                </span>
+            </div>
+
         </div>
     </section>
 
-    <section class="services" id="services">
+    <section class="certifications reveal" id="certifications">
+        <h2 class="section-title">Certifications</h2>
+        <div class="cert-list">
+            <div class="cert-row">
+                <i class='bx bx-medal'></i>
+                <div class="cert-row-text">
+                    <h3>Linux Essentials</h3>
+                    <p>Cisco Networking Academy</p>
+                </div>
+            </div>
+            <div class="cert-row">
+                <i class='bx bx-medal'></i>
+                <div class="cert-row-text">
+                    <h3>Linux Unhatched</h3>
+                    <p>Cisco Networking Academy</p>
+                </div>
+            </div>
+            <div class="cert-row">
+                <i class='bx bx-medal'></i>
+                <div class="cert-row-text">
+                    <h3>Python Essentials</h3>
+                    <p>Cisco Networking Academy</p>
+                </div>
+            </div>
+            <div class="cert-row">
+                <i class='bx bx-medal'></i>
+                <div class="cert-row-text">
+                    <h3>Python (Basic)</h3>
+                    <p>HackerRank</p>
+                </div>
+            </div>
+            <div class="cert-row">
+                <i class='bx bx-medal'></i>
+                <div class="cert-row-text">
+                    <h3>LangChain for LLM Application Development</h3>
+                    <p>LangChain Academy</p>
+                </div>
+            </div>
+            <div class="cert-row">
+                <i class='bx bx-medal'></i>
+                <div class="cert-row-text">
+                    <h3>Introduction to LangGraph</h3>
+                    <p>LangChain Academy</p>
+                </div>
+            </div>
+            <div class="cert-row">
+                <i class='bx bx-medal'></i>
+                <div class="cert-row-text">
+                    <h3>LangSmith</h3>
+                    <p>LangChain Academy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services reveal" id="services">
         <h2 class="section-title">Services</h2>
         <div class="services-grid">
             <div class="service-card">
-                <i class='bx bx-code-alt'></i>
+                <div class="service-icon"><i class='bx bx-code-alt'></i></div>
                 <h3>Full-Stack Development</h3>
                 <p>End-to-end web applications — responsive frontends, RESTful backends, and the database layer that ties them together.</p>
             </div>
             <div class="service-card">
-                <i class='bx bx-bot'></i>
+                <div class="service-icon"><i class='bx bx-bot'></i></div>
                 <h3>AI Agent Engineering</h3>
                 <p>Agents built with LangChain and LangGraph, grounded with RAG, wrapped in guardrails and human-in-the-loop review so they're actually trustworthy.</p>
             </div>
             <div class="service-card">
-                <i class='bx bx-server'></i>
+                <div class="service-icon"><i class='bx bx-server'></i></div>
                 <h3>Backend & API Development</h3>
                 <p>RESTful APIs, database design, and system architecture built to be reliable, maintainable, and scalable.</p>
             </div>
             <div class="service-card">
-                <i class='bx bx-cloud'></i>
+                <div class="service-icon"><i class='bx bx-network-chart'></i></div>
+                <h3>Network Engineering</h3>
+                <p>Network design, topology planning, and configuration — routing, switching, and addressing built for security and reliability.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class='bx bx-cloud'></i></div>
                 <h3>DevOps & Deployment</h3>
                 <p>VPS setup, Nginx configuration, SSL, Docker, and CI/CD — taking a system from code to something that actually runs in production.</p>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="contact reveal" id="contact">
         <h2 class="section-title">Contact</h2>
         <div class="contact-content">
             <p>Have a project in mind or an opportunity to discuss? I'd like to hear from you.</p>
@@ -186,7 +285,7 @@
                 <a href="https://github.com/WolfCeoo" target="_blank" rel="noopener" class="contact-item">
                     <i class='bx bxl-github'></i> github.com/WolfCeoo
                 </a>
-                <a href="https://www.linkedin.com/in/andile-mathe" target="_blank" rel="noopener" class="contact-item">
+                <a href="https://www.linkedin.com/in/andilemathecliff/" target="_blank" rel="noopener" class="contact-item">
                     <i class='bx bxl-linkedin-square'></i> LinkedIn
                 </a>
                 <a href="https://x.com/wolf__ceo" target="_blank" rel="noopener" class="contact-item">
@@ -200,6 +299,10 @@
         <p>&copy; <span id="year"></span> Andile Mathe. Built with HTML, CSS &amp; JavaScript.</p>
     </footer>
 
+    <button id="backToTop" aria-label="Back to top">
+        <i class='bx bx-up-arrow-alt'></i>
+    </button>
+
     <script>
         // Hamburger menu logic
         const toggle = document.getElementById('menuToggle');
@@ -210,7 +313,6 @@
             toggle.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked
         navList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navList.classList.remove('open');
@@ -222,7 +324,7 @@
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('#navList li');
 
-        window.addEventListener('scroll', () => {
+        function updateActiveNav() {
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 120;
@@ -237,6 +339,63 @@
                     li.classList.add('active');
                 }
             });
+        }
+
+        // Navbar: transparent + visible at top, hides on scroll down,
+        // reappears (with a subtle glass background) on scroll up.
+        const navbar = document.getElementById('navbar');
+        let lastScrollY = window.scrollY;
+
+        function updateNavbar() {
+            const currentY = window.scrollY;
+
+            if (currentY < 60) {
+                navbar.classList.remove('nav-hidden', 'nav-scrolled');
+            } else if (currentY > lastScrollY) {
+                // scrolling down
+                navbar.classList.add('nav-hidden');
+            } else {
+                // scrolling up
+                navbar.classList.remove('nav-hidden');
+                navbar.classList.add('nav-scrolled');
+            }
+            lastScrollY = currentY;
+        }
+
+        // Scroll progress bar
+        const progressBar = document.getElementById('scrollProgress');
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = pct + '%';
+        }
+
+        window.addEventListener('scroll', () => {
+            updateActiveNav();
+            updateNavbar();
+            updateProgress();
+        }, { passive: true });
+
+        // Scroll-reveal animation for sections
+        const revealEls = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => revealObserver.observe(el));
+
+        // Back-to-top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('show', window.scrollY > 500);
+        }, { passive: true });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         // Typewriter logic
@@ -244,6 +403,7 @@
             'Software Developer.',
             'AI Engineer.',
             'Backend Developer.',
+            'Network Engineer.',
             'Full-Stack Developer.',
             'Problem Solver.'
         ];
@@ -274,8 +434,21 @@
                 setTimeout(type, 45);
             }
         }
-        // Start typing after initial intro bars clear
-        setTimeout(type, 1500);
+
+        // Only play the intro bar-wipe animation once per browser session —
+        // skip it on reloads/back-navigation within the same session so it
+        // doesn't get old.
+        const barsAnimation = document.getElementById('barsAnimation');
+        const alreadyPlayed = sessionStorage.getItem('introPlayed');
+
+        if (alreadyPlayed) {
+            barsAnimation.style.display = 'none';
+            document.body.classList.add('intro-skipped');
+            setTimeout(type, 200);
+        } else {
+            sessionStorage.setItem('introPlayed', 'true');
+            setTimeout(type, 1500);
+        }
 
         // Footer year
         document.getElementById('year').textContent = new Date().getFullYear();

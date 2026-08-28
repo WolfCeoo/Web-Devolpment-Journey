@@ -3,11 +3,16 @@ name: Deploy to VPS
 # This runs alongside GitHub Pages, not instead of it.
 # GitHub Pages continues to auto-deploy from the `main` branch as before —
 # this workflow just also mirrors the site to a self-hosted VPS.
+#
+# Auto-trigger on push is disabled for now (VPS secrets aren't set up yet,
+# so every push was failing and emailing an error). Once the VPS_* secrets
+# are added under Settings > Secrets and variables > Actions, re-enable the
+# `push` trigger below, or just run this manually via the Actions tab.
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
+  # push:
+  #   branches: [main]
 
 jobs:
   deploy:
